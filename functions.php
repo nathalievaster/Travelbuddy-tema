@@ -11,6 +11,14 @@ add_action('after_setup_theme', 'travelbuddy_setup');
 
 function travelbuddy_assets() {
 
+    // Google Fonts
+  wp_enqueue_style(
+    'google-fonts',
+    'https://fonts.googleapis.com/css2?family=Anton&family=Antonio:wght@100..700&display=swap',
+    [],
+    null
+  );
+
   wp_enqueue_style(
     'theme-style',
     get_stylesheet_uri()
@@ -49,12 +57,14 @@ if ( is_front_page() ) {
     ['base']
   );
 }
+
+  // Navigation JS
   wp_enqueue_script(
-    'menu',
-    get_template_directory_uri() . '/js/menu.js',
+    'nav-js',
+    get_template_directory_uri() . '/js/nav.js',
     [],
     null,
-    true
+    true // laddas i footer (viktigt!)
   );
 
 }

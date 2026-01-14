@@ -8,6 +8,21 @@ $hero_image = get_the_post_thumbnail_url(null, 'full')
 <header class="hero hero--home"
   style="background-image: url('<?php echo esc_url($hero_image); ?>');">
 
+  <nav class="nav">
+    <button class="nav-toggle" aria-label="Öppna meny" aria-expanded="false">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <?php
+    wp_nav_menu([
+      'theme_location' => 'primary',
+      'container' => false,
+    ]);
+    ?>
+  </nav>
+
   <h1><?php bloginfo('name'); ?></h1>
 
 </header>
