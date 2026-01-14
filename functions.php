@@ -26,6 +26,17 @@ function travelbuddy_assets() {
     get_template_directory_uri() . '/css/nav.css'
   );
 
+  wp_enqueue_style(
+    'base',
+    get_template_directory_uri() . '/css.base.css'
+  );
+
+  wp_enqueue_style(
+  'footer',
+  get_template_directory_uri() . '/css/footer.css',
+  ['base'] // bygger på base.css
+);
+
   wp_enqueue_script(
     'menu',
     get_template_directory_uri() . '/js/menu.js',

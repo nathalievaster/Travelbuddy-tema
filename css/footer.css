@@ -1,0 +1,21 @@
+footer {
+  margin-top: 6em;
+  background: #e53935;
+  color: white;
+  padding: 60px 40px;
+  border-top-left-radius: 100px;
+  border-top-right-radius: 100px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.footer-text {
+  line-height: 2.1;
+}
+
+.socials span {
+  margin-left: 15px;
+  font-weight: bold;
+  cursor: pointer;
+}
