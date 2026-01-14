@@ -28,7 +28,7 @@ function travelbuddy_assets() {
 
   wp_enqueue_style(
     'base',
-    get_template_directory_uri() . '/css.base.css'
+    get_template_directory_uri() . '/css/base.css'
   );
 
   wp_enqueue_style(
