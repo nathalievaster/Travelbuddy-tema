@@ -66,6 +66,13 @@ if ( is_front_page() ) {
     null,
     true // laddas i footer (viktigt!)
   );
+  if ( is_page_template('page-about-template.php') ) {
+    wp_enqueue_style(
+      'about-page',
+      get_template_directory_uri() . '/css/pages/about.css',
+      ['base']
+    );
+  }
 
 }
 add_action('wp_enqueue_scripts', 'travelbuddy_assets');
