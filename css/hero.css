@@ -1,0 +1,20 @@
+/* =========================
+   HERO (GLOBAL)
+========================= */
+.hero {
+  height: 50vh;
+  position: relative;
+  color: white;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.hero h1 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 4rem;
+  letter-spacing: 1px;
+}
