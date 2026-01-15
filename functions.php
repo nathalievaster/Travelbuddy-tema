@@ -74,5 +74,14 @@ if ( is_front_page() ) {
     );
   }
 
+  if ( is_page_template('page-contact-template.php') ) {
+  wp_enqueue_style(
+    'contact-page',
+    get_template_directory_uri() . '/css/pages/contact.css',
+    ['base']
+  );
+}
+
+
 }
 add_action('wp_enqueue_scripts', 'travelbuddy_assets');
