@@ -92,18 +92,19 @@ $hero_image = get_the_post_thumbnail_url(null, 'full')
         if ($trips->have_posts()):
             while ($trips->have_posts()):
                 $trips->the_post();
-
-                $type = get_field('trip_type');
-                $destination = get_field('trip_destination');
-                $length = get_field('trip_length');
+                $image = get_the_post_thumbnail_url(get_the_ID(), 'large');
                 ?>
 
-                <article class="card" data-type="<?php echo esc_attr($type); ?>"
-                    data-destination="<?php echo esc_attr($destination); ?>" data-length="<?php echo esc_attr($length); ?>">
+                <article class="card">
+                    <a href="<?php the_permalink(); ?>" class="card-link">
 
-                    <?php the_post_thumbnail('large'); ?>
-                    <span><?php the_title(); ?></span>
+                        <?php if ($image): ?>
+                            <img src="<?php echo esc_url($image); ?>" alt="<?php the_title_attribute(); ?>">
+                        <?php endif; ?>
 
+                        <span><?php the_title(); ?></span>
+
+                    </a>
                 </article>
 
                 <?php

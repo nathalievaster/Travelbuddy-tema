@@ -106,6 +106,20 @@ wp_enqueue_style(
   ['base']
 );
 
+if ( is_singular('trip') ) {
+  wp_enqueue_style(
+    'trip',
+    get_template_directory_uri() . '/css/pages/single-trip.css'
+  );
+}
+
+if ( is_singular('trip') ) {
+  wp_enqueue_script(
+    'trip',
+    get_template_directory_uri() . '/js/modal.js'
+  );
+}
+
 }
 add_action('wp_enqueue_scripts', 'travelbuddy_assets');
 

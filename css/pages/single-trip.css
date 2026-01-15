@@ -1,0 +1,159 @@
+/* TRIP PAGE */
+
+.breadcrumb {
+  max-width: 1100px;
+  margin: 2em auto 0;
+  padding: 0 20px;
+}
+
+.breadcrumb a {
+  text-decoration: none;
+  font-weight: 600;
+  color: #e53935;
+  transition: color 0.4s ease-in-out;
+  font-size: 1.2em;
+}
+
+.breadcrumb a:hover {
+    color: #8e2221;
+}
+
+.breadcrumb a::after {
+  display: none;
+}
+
+.trip-intro {
+    max-width: 800px;
+    margin: 4em auto 2em;
+    text-align: center;
+}
+
+.trip-lead {
+    font-size: 1.2rem;
+    line-height: 1.6;
+}
+
+.trip-details {
+    max-width: 800px;
+    margin: 3em auto;
+    padding: 2em;
+    border: 2px solid #222;
+    border-radius: 30px;
+    display: grid;
+    gap: 2em;
+    text-align: center;
+}
+
+.trip-facts {
+    list-style: none;
+    display: grid;
+    gap: 0.8em;
+    font-size: 1.1rem;
+}
+
+.cta-book {
+    padding: 1em 2.5em;
+    font-size: 1.2rem;
+    font-family: "Anton", sans-serif;
+    border-radius: 40px;
+    border: none;
+    background: #e53935;
+    color: white;
+    cursor: pointer;
+    transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.cta-book:hover {
+    transform: scale(1.05);
+    background: #c62828;
+}
+
+.trip-program {
+    max-width: 800px;
+    margin: 5em auto;
+    padding: 0 20px;
+}
+
+.trip-program h2 {
+    text-align: center;
+    margin-bottom: 2em;
+}
+
+.program-day {
+    margin-bottom: 2em;
+}
+
+.program-day h3 {
+    margin-bottom: 0.5em;
+}
+
+/* MODAL */
+
+.modal {
+    position: fixed;
+    inset: 0;
+    display: none;
+    z-index: 1000;
+}
+
+.modal.active {
+    display: block;
+}
+
+.modal__overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.6);
+}
+
+.modal__content {
+    position: relative;
+    max-width: 420px;
+    margin: 10vh auto;
+    background: #FFFDF2;
+    padding: 2.5em;
+    border-radius: 30px;
+    text-align: center;
+}
+
+.modal__close {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    background: none;
+    border: none;
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+.wpcf7-form {
+  display: grid;
+  gap: 1.4em;
+  margin-top: 1.5em;
+}
+
+/* VARJE FÄLT (p är wrapper i CF7) */
+.wpcf7-form p {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4em;
+}
+
+/* LABEL */
+.wpcf7-form label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-align: left;
+}
+
+/* INPUT / TEXTAREA */
+.wpcf7-form input,
+.wpcf7-form textarea,
+.wpcf7-form select {
+  padding: 0.8em 1em;
+  border-radius: 20px;
+  border: 1px solid #ccc;
+  font-family: inherit;
+  width: 100%;
+}
