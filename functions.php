@@ -100,5 +100,27 @@ if ( is_page_template('page-trips-template.php') ) {
   );
 }
 
+wp_enqueue_style(
+  'cards',
+  get_template_directory_uri() . '/css/components/cards.css',
+  ['base']
+);
+
 }
 add_action('wp_enqueue_scripts', 'travelbuddy_assets');
+
+// Skapa custom post types
+function register_trips_cpt() {
+  register_post_type('trip', [
+    'labels' => [
+      'name' => 'Resor',
+      'singular_name' => 'Resa',
+    ],
+    'public' => true,
+    'has_archive' => false,
+    'menu_icon' => 'dashicons-location-alt',
+    'supports' => ['title', 'thumbnail'],
+    'rewrite' => ['slug' => 'resor'],
+  ]);
+}
+add_action('init', 'register_trips_cpt');
