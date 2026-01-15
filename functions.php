@@ -82,6 +82,23 @@ if ( is_front_page() ) {
   );
 }
 
+if ( is_page_template('page-trips-template.php') ) {
+  wp_enqueue_style(
+    'trips-page',
+    get_template_directory_uri() . '/css/pages/trips.css',
+    ['base']
+  );
+}
+
+if ( is_page_template('page-trips-template.php') ) {
+  wp_enqueue_script(
+    'trip-filter',
+    get_template_directory_uri() . '/js/filter.js',
+    [],
+    null,
+    true
+  );
+}
 
 }
 add_action('wp_enqueue_scripts', 'travelbuddy_assets');

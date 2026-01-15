@@ -1,0 +1,65 @@
+/* FILTERS */
+.trip-filters {
+    max-width: 1000px;
+    margin: 3em auto;
+    padding: 20px;
+}
+
+.trip-filters form {
+    display: flex;
+    gap: 2em;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.trip-filters label {
+    display: flex;
+    flex-direction: column;
+    font-weight: 600;
+    gap: 8px;
+}
+
+.trip-filters select {
+    padding: 10px 15px;
+    border-radius: 20px;
+    border: 2px solid #222;
+    background: #FFFDF2;
+    font-family: inherit;
+    cursor: pointer;
+}
+/* Smooth hide/show */
+.card {
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.card.hide {
+    opacity: 0;
+    transform: scale(0.95);
+    pointer-events: none;
+}
+
+.card-link {
+    display: grid;
+}
+
+.card-link img,
+.card-link span {
+    grid-area: 1 / 1;
+}
+
+.card-link {
+    text-decoration: none;
+    color: inherit;
+}
+
+.intro {
+    max-width: 700px;
+    margin: 0 auto;
+    margin-top: 2em;
+    text-align: center;
+    padding: 2em;
+}
+
+.intro p {
+    margin-top: 1em;
+}
