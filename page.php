@@ -8,25 +8,17 @@ $hero_image = get_the_post_thumbnail_url(null, 'full')
 <header class="hero hero--page"
   style="background-image: url('<?php echo esc_url($hero_image); ?>');">
 
-  <nav class="nav">
-    <button class="nav-toggle" aria-label="Öppna meny" aria-expanded="false">
-      <span></span>
-      <span></span>
-      <span></span>
-    </button>
+  <?php if ( is_active_sidebar('header-search') ) : ?>
+    <div class="header-search">
+      <?php dynamic_sidebar('header-search'); ?>
+    </div>
+  <?php endif; ?>
 
-    <?php
-    wp_nav_menu([
-      'theme_location' => 'primary',
-      'container' => false,
-    ]);
-    ?>
-  </nav>
+  <?php get_template_part('template-parts/nav'); ?>
 
   <h1><?php the_title(); ?></h1>
 
 </header>
-
 <main class="page-content">
   <?php
   while ( have_posts() ) :
