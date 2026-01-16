@@ -92,15 +92,51 @@ nav a.active::after {
 /* =========================
    SEARCH
 ========================= */
-#search {
-  padding: 7px 10px;
-  border-radius: 20px;
-  border: none;
+/* Positionera söken i headern */
+.header-search {
   position: absolute;
-  top: 1.5rem;
-  right: 2rem;
+  top: 1rem;
+  right: 1rem;
+  z-index: 20;
 }
 
+/* Själva sökblocket */
+.header-search .wp-block-search {
+  display: flex;
+  align-items: center;
+}
+
+/* Wrapper runt input + knapp */
+.header-search .wp-block-search__inside-wrapper {
+  display: flex;
+  gap: 0.25rem;
+}
+
+/* Inputfältet */
+.header-search .wp-block-search__input {
+  padding: 0.4rem 0.6rem;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  font-size: 0.9rem;
+  width: 20em;
+}
+
+/* Knappen */
+.header-search .wp-block-search__button {
+  padding: 0.4rem 0.7rem;
+  width: 5em;
+  border-radius: 20px;
+  border: none;
+  background-color: #000;
+  color: #fff;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+/* Hover */
+.header-search .wp-block-search__button:hover {
+  background-color: #333;
+}
 /* =========================
    HAMBURGER
 ========================= */
@@ -191,9 +227,5 @@ nav a.active::after {
   .nav.open ul {
     max-height: 400px;
     padding: 2em 0;
-  }
-
-  #search {
-    display: none;
   }
 }

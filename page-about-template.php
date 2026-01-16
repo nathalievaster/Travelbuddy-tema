@@ -12,20 +12,13 @@ $hero_image = get_the_post_thumbnail_url(null, 'full')
 <header class="hero hero--page"
   style="background-image: url('<?php echo esc_url($hero_image); ?>');">
 
-  <nav class="nav">
-    <button class="nav-toggle" aria-label="Öppna meny" aria-expanded="false">
-      <span></span>
-      <span></span>
-      <span></span>
-    </button>
+  <?php if ( is_active_sidebar('header-search') ) : ?>
+    <div class="header-search">
+      <?php dynamic_sidebar('header-search'); ?>
+    </div>
+  <?php endif; ?>
 
-    <?php
-    wp_nav_menu([
-      'theme_location' => 'primary',
-      'container' => false,
-    ]);
-    ?>
-  </nav>
+  <?php get_template_part('template-parts/nav'); ?>
 
   <h1><?php the_title(); ?></h1>
 
@@ -35,9 +28,9 @@ $hero_image = get_the_post_thumbnail_url(null, 'full')
 
   <section class="about">
 
-    <p class="about__intro">
-      <?php the_field('about_intro'); ?>
-    </p>
+    <h2 class="about-intro">
+      <?php the_field('about-intro'); ?>
+    </h2>
 
     <div class="moreabout">
       <p><?php the_field('about_intro_paragraph'); ?></p>
@@ -51,13 +44,13 @@ $hero_image = get_the_post_thumbnail_url(null, 'full')
           <p><?php the_field('about_vision_text'); ?></p>
 
           <ul>
-            <?php if ( get_field('about_value_1') ) : ?>
+            <?php if (get_field('about_value_1')): ?>
               <li><strong><?php the_field('about_value_1'); ?></strong></li>
             <?php endif; ?>
-            <?php if ( get_field('about_value_2') ) : ?>
+            <?php if (get_field('about_value_2')): ?>
               <li><strong><?php the_field('about_value_2'); ?></strong></li>
             <?php endif; ?>
-            <?php if ( get_field('about_value_3') ) : ?>
+            <?php if (get_field('about_value_3')): ?>
               <li><strong><?php the_field('about_value_3'); ?></strong></li>
             <?php endif; ?>
           </ul>
@@ -65,12 +58,10 @@ $hero_image = get_the_post_thumbnail_url(null, 'full')
 
         <?php
         $about_image = get_field('about_image');
-        if ( $about_image ) :
-        ?>
+        if ($about_image):
+          ?>
           <figure class="about__image">
-            <img
-              src="<?php echo esc_url($about_image['url']); ?>"
-              alt="<?php echo esc_attr($about_image['alt']); ?>">
+            <img src="<?php echo esc_url($about_image['url']); ?>" alt="<?php echo esc_attr($about_image['alt']); ?>">
             <figcaption>
               <?php the_field('about_image_caption'); ?>
             </figcaption>

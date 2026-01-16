@@ -171,4 +171,17 @@ function register_trips_cpt()
   ]);
 
 }
+
+function travelbuddy_widgets_init() {
+  register_sidebar([
+    'name'          => 'Header Search',
+    'id'            => 'header-search',
+    'description'   => 'Sökfält i headern',
+    'before_widget' => '<div class="header-search">',
+    'after_widget'  => '</div>',
+    'before_title'  => '',
+    'after_title'   => '',
+  ]);
+}
+add_action('widgets_init', 'travelbuddy_widgets_init');
 add_action('init', 'register_trips_cpt');
