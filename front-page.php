@@ -16,6 +16,15 @@ $hero_image = get_the_post_thumbnail_url(null, 'full')
     </div>
   <?php endif; ?>
 
+  <?php
+if ( function_exists('pll_the_languages') ) {
+  pll_the_languages([
+    'show_flags' => 1,
+    'show_names' => 0
+  ]);
+}
+?>
+
   <?php get_template_part('template-parts/nav'); ?>
 
   <h1><?php bloginfo('name'); ?></h1>
