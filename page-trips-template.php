@@ -28,12 +28,52 @@ $hero_image = get_the_post_thumbnail_url(null, 'full')
     <p><?php the_field('trips_intro_text'); ?></p>
   </section>
 
+  <!-- FILTER -->
+  <section class="trip-filters">
+    <div class="filters">
+
+      <label>
+        Typ av resa
+        <select id="filter-type">
+          <option value="all">Alla</option>
+          <option value="adventure">Natur & äventyr</option>
+          <option value="relax">Avkoppling & spa</option>
+          <option value="culture">Kulturresor</option>
+          <option value="weekend">Weekend-resor</option>
+        </select>
+      </label>
+
+      <label>
+        Destination
+        <select id="filter-destination">
+          <option value="all">Alla</option>
+          <option value="madeira">Madeira</option>
+          <option value="srilanka">Sri Lanka</option>
+          <option value="maldiverna">Maldiverna</option>
+          <option value="europa">Europa</option>
+        </select>
+      </label>
+
+      <label>
+        Reslängd
+        <select id="filter-length">
+          <option value="all">Alla</option>
+          <option value="1-3">1–3 dagar</option>
+          <option value="3-5">3–5 dagar</option>
+          <option value="6-10">6–10 dagar</option>
+          <option value="10+">10+ dagar</option>
+        </select>
+      </label>
+
+    </div>
+  </section>
+
   <!-- DESTINATIONS -->
   <section class="destinations">
 
     <?php
     $trips = new WP_Query([
-      'post_type' => 'trip',
+      'post_type'      => 'trip',
       'posts_per_page' => -1,
     ]);
 
@@ -43,12 +83,18 @@ $hero_image = get_the_post_thumbnail_url(null, 'full')
 
         $image = get_the_post_thumbnail_url(get_the_ID(), 'large');
 
-        // WooCommerce-koppling
-        $product_id = get_field('linked_product');
-        $product = $product_id ? wc_get_product($product_id) : null;
+        // 🔑 ACF-värden för filtrering
+        $type        = get_field('trip_type');        // t.ex. adventure
+        $destination = get_field('trip_destination'); // t.ex. madeira
+        $length      = get_field('trip_length');      // t.ex. 6-10
         ?>
 
-        <article class="card">
+        <article
+          class="card"
+          data-type="<?php echo esc_attr($type); ?>"
+          data-destination="<?php echo esc_attr($destination); ?>"
+          data-length="<?php echo esc_attr($length); ?>"
+        >
           <a href="<?php the_permalink(); ?>" class="card-link">
 
             <?php if ($image): ?>
@@ -56,8 +102,6 @@ $hero_image = get_the_post_thumbnail_url(null, 'full')
             <?php endif; ?>
 
             <span class="card-title"><?php the_title(); ?></span>
-
-          
 
           </a>
         </article>
