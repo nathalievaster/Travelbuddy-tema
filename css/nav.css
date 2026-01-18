@@ -121,6 +121,12 @@ nav a.active::after {
   width: 20em;
 }
 
+@media (max-width: 500px) {
+  .header-search .wp-block-search__input {
+    width: 10em;
+  }
+}
+
 /* Knappen */
 .header-search .wp-block-search__button {
   padding: 0.4rem 0.7rem;
